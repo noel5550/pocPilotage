@@ -8,6 +8,7 @@
           variant="primary" 
           ref="button"
           @click="popoverShow = !popoverShow"
+          
         >
           {{msgBouton}}
         </b-button>
