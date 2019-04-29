@@ -1,29 +1,194 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="gridPrincipal" class="wholePage">
+        <div id="Entete" ref="Entete">
+            <EnteteApp :hauteurImages="45"/>
+        </div>
+        <div id="blanc" ref= "blanc"/>
+        <TableGrid :typeGrid= 1></TableGrid>
+
+        <div id="blanc" ref= "blanc"/>
+        <TableGrid :typeGrid= 2></TableGrid>
+
+        <div id="blanc" ref= "blanc"/>
+        <TableGrid :typeGrid= 3></TableGrid>
+
+		 <b-container fluid>
+			<div id="MenuSlideDroite" ref="MenuSlideDroite">
+				<SlideMenu/>
+			</div>
+			<div id="SliderDroite" ref="SliderDroite">
+				<img :src='placeholderD' @click="slideMenuDroite()">
+			</div>
+		</b-container>
+		
+			
+		 <b-container fluid>
+			<div id="MenuSlideGauche" ref="MenuSlideGauche">
+				<SlideMenu/>
+			</div>
+			<div id="SliderGauche" ref="SliderGauche">
+				<img :src='placeholderG' @click="slideMenuGauche()">
+			</div>
+		 </b-container>
+
     </div>
-    <router-view />
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import EnteteApp from './components/Entete.vue';
+import SlideMenu from './components/SlideMenu.vue';
+import TableGrid from './components/TableGrid.vue'
+
+export default {
+    name: "gridPrincipal",
+    data(){
+        return{
+            placeholderD: require('./assets/sliderOpen.png'),
+            menuButtonEtatD: false,
+
+            placeholderG: require('./assets/sliderOpenG.png'),
+            menuButtonEtatG: false,
+        }
+    },
+    
+    components:{
+        EnteteApp,
+		SlideMenu,
+		TableGrid,
+    },
+
+    methods: {
+        activerMenuDroite: async function() {
+			this.$refs.MenuSlideDroite.style.right = "0px";
+			this.$refs.MenuSlideDroite.style.boxShadow = "-25px 0px 20px -20px #333333"
+			this.$refs.SliderDroite.style.right = "300px";
+			this.placeholderD = require("./assets/sliderClose.png");
+        },
+        fermerMenuDroite: function() {
+			this.$refs.MenuSlideDroite.style.right = "-300px";
+			this.$refs.MenuSlideDroite.style.boxShadow = "0 0 0 0 #333333"
+			this.$refs.SliderDroite.style.right = "0px";
+			this.placeholderD = require("./assets/sliderOpen.png");
+        },
+        slideMenuDroite: function() {
+			if(this.menuButtonEtatD) {
+				this.fermerMenuDroite();
+			} else {
+				this.activerMenuDroite();
+			}
+			this.menuButtonEtatD = !this.menuButtonEtatD;
+        },
+        
+
+        activerMenuGauche: async function() {
+			this.$refs.MenuSlideGauche.style.left = "0px";
+			this.$refs.MenuSlideGauche.style.boxShadow = "25px 0px 20px -20px #333333"
+			this.$refs.SliderGauche.style.left = "300px";
+			this.placeholderG = require("./assets/sliderCloseG.png");
+        },
+        fermerMenuGauche: function() {
+			this.$refs.MenuSlideGauche.style.left = "-300px";
+			this.$refs.MenuSlideGauche.style.boxShadow = "0 0 0 0 #333333"
+			this.$refs.SliderGauche.style.left = "0px";
+			this.placeholderG = require("./assets/sliderOpenG.png");
+        },
+        slideMenuGauche: function() {
+			if(this.menuButtonEtatG) {
+				this.fermerMenuGauche();
+			} else {
+				this.activerMenuGauche();
+			}
+			this.menuButtonEtatG = !this.menuButtonEtatG;
+		}
     }
-  }
-}
+};
+</script>
+
+
+<style lang="scss">
+  $ag-icons-path: "../node_modules/ag-grid-community/src/styles/ag-theme-balham/icons/";
+  $odd-row-background-color: #CFD8DC;
+  @import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+  @import "../node_modules/ag-grid-community/dist/styles/ag-theme-balham.css";
+
+
+	#gridPrincipal {
+		font-family: "Avenir", Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-align: center;
+		color: #2c3e50;
+	}
+
+	.wholePage{
+		width: 100%;
+	}
+
+	#blanc {
+		border: 0px;
+		width: 100%;
+		height: 5px;
+		background: #FFFFFF;
+		position: fixed;
+		top: 25px;
+		left: 0px;
+		display: none;
+		z-index: 1;
+	}
+
+	#MenuSlideDroite {
+		background: #FFFFFF;
+		position: fixed;
+		text-align: center;
+		margin-left: 8px;
+		margin-right: 0px;
+		top: 0px;
+		padding-top: 60px;
+		right: -300px;
+		width: 300px;
+		height: 100%;
+		box-shadow: 0 0 0 0 #333333;
+		transition: all .7s ease-out;
+		z-index: 4;
+	}
+
+	#SliderDroite {
+		position: fixed;
+		bottom: 30px;
+		right: 0px;
+		-webkit-filter: drop-shadow(-20px 0px 15px #333333);
+		filter: drop-shadow(-20px 0px 15px #333333);
+		transition: all .7s ease-out;
+		z-index: 4;
+		cursor: pointer;
+	}
+
+
+	#MenuSlideGauche {
+		background: #FFFFFF;
+		position: fixed;
+		text-align: center;
+		margin-left: 0px;
+		margin-right: 8px;
+		top: 0px;
+		padding-top: 60px;
+		left: -300px;
+		width: 300px;
+		height: 100%;
+		box-shadow: 0 0 0 0 #333333;
+		transition: all .7s ease-out;
+		z-index: 4;
+	}
+
+	#SliderGauche {
+		position: fixed;
+		bottom: 30px;
+		left: 0px;
+		-webkit-filter: drop-shadow(-20px 0px 15px #333333);
+		filter: drop-shadow(20px 0px 15px #333333);
+		transition: all .7s ease-out;
+		z-index: 4;
+		cursor: pointer;
+	}
+
 </style>
