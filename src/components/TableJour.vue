@@ -30,6 +30,9 @@
                 </template>
 
                 <template slot="row-details" slot-scope="row">
+                    <sousTaches :sousTables= row.item.sousTaches :fields= fields :typeGrid= typeGrid :numJour= numJour>      
+                    </sousTaches>
+                    <!-- <tabJour :typeGrid="typeGrid" :gridLib="gridLib" :numJour="numJour"></tabJour> -->
                     <b-card>
                     <b-row class="mb-2">
                         <b-col sm="3" class="text-sm-right"><b>d1:</b></b-col>
@@ -39,9 +42,7 @@
                     <b-row class="mb-2">
                         <b-col sm="3" class="text-sm-right"><b>d2:</b></b-col>
                         <progBar 
-                            :tableProg="'Activité ' + typeGrid.toString()"
-                            :ligneProg= row.item.lib
-                            :jourProg= numJour>                        
+                            :data= row.item>                        
                         </progBar>
                     </b-row>
 
@@ -50,11 +51,10 @@
                         <b-col>{{ row.item.d3 }}</b-col>
                     </b-row>
                     </b-card>
+                    
                 </template>
-                
+
             </b-table>
-            <!-- <sousTaches :typeGrid= typeGrid :numJour= numJour>      
-            </sousTaches> -->
             <envoieMessage :idBouton = numJour.toString() :msgBouton = "'Alerter tâches'"></envoieMessage>
       </b-tab>  
       </b-collapse>
@@ -75,6 +75,7 @@ import progBar from './ProgBar.vue'
 import sousTaches from './SousTaches.vue'
 
 export default {
+    name: 'tabJour',
 
     props: {
         typeGrid: Number,

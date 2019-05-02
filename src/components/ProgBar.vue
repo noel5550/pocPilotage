@@ -17,15 +17,22 @@
       }
     },
     props:{
-        tableProg: Number,
-        ligneProg: String,
+        data: Object,
     },
     computed:{
+        // max(){
+
+        //     return this.$store.getters.maxDate(this.tableProg,this.ligneProg, this.jourProg);
+        // },
+        // value(){
+        //     return this.$store.getters.currentDate(this.tableProg,this.ligneProg, this.jourProg);
+        // },
         max(){
-            return this.$store.getters.maxDate(this.tableProg,this.ligneProg);
+          return this.data.temps;
         },
+
         value(){
-            return this.$store.getters.currentDate(this.tableProg,this.ligneProg);
+          return this.data.d2;
         },
         variant(){
             if(this.max<this.value){

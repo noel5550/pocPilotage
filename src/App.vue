@@ -1,17 +1,32 @@
 <template>
+
     <div id="gridPrincipal" class="wholePage">
         <div id="Entete" ref="Entete">
             <EnteteApp :hauteurImages="45"/>
         </div>
-        <div id="blanc" ref= "blanc"/>
-        <TableGrid :typeGrid= 1></TableGrid>
+		<!-- <csvImporter></csvImporter> -->
+		<!-- <div v-on:changeTitle="updateTitle($event)"> -->
+		<b-tabs content-class="mt-3" align="center">
+			<b-tab :title="titles[0]" active>
+				<!-- <div id="blanc" ref= "blanc"/> -->
+				<TableGrid :typeGrid= 1 :gridLib="titles[0]" :activite="activites[0]"></TableGrid>
+			</b-tab>
+    		<b-tab :title="titles[1]">
+				<!-- <div id="blanc" ref= "blanc"/> -->
+				<TableGrid :typeGrid= 2 :gridLib="titles[1]" :activite="activites[1]"></TableGrid>
+			</b-tab>
+    		<b-tab :title="titles[2]">
+				<!-- <div id="blanc" ref= "blanc"/> -->
+				<TableGrid :typeGrid= 3 :gridLib="titles[2]" :activite="activites[2]"></TableGrid>
+			</b-tab>
+			
 
-        <div id="blanc" ref= "blanc"/>
-        <TableGrid :typeGrid= 2></TableGrid>
+			
 
-        <div id="blanc" ref= "blanc"/>
-        <TableGrid :typeGrid= 3></TableGrid>
-
+			
+		</b-tabs>
+		<!-- </div> -->
+       
 		 <b-container fluid>
 			<div id="MenuSlideDroite" ref="MenuSlideDroite">
 				<SlideMenu/>
@@ -37,7 +52,8 @@
 <script>
 import EnteteApp from './components/Entete.vue';
 import SlideMenu from './components/SlideMenu.vue';
-import TableGrid from './components/TableGrid.vue'
+import TableGrid from './components/TableGrid.vue';
+import csvImporter from './components/csvImporter.vue';
 
 export default {
     name: "gridPrincipal",
@@ -47,7 +63,10 @@ export default {
             menuButtonEtatD: false,
 
             placeholderG: require('./assets/sliderOpenG.png'),
-            menuButtonEtatG: false,
+			menuButtonEtatG: false,
+			
+			titles: [],
+			activites: [],
         }
     },
     
@@ -55,9 +74,13 @@ export default {
         EnteteApp,
 		SlideMenu,
 		TableGrid,
+		csvImporter,
     },
 
     methods: {
+	  updateTitle: function(updatedTitle){
+        this.titles = updatedTitle;
+      },
         activerMenuDroite: async function() {
 			this.$refs.MenuSlideDroite.style.right = "0px";
 			this.$refs.MenuSlideDroite.style.boxShadow = "-25px 0px 20px -20px #333333"
@@ -100,7 +123,12 @@ export default {
 			}
 			this.menuButtonEtatG = !this.menuButtonEtatG;
 		}
-    }
+	},
+	created(){
+		this.titles = this.$store.getters.getHeaders;
+		this.activites = this.$store.getters.getLibele;
+	},
+
 };
 </script>
 
