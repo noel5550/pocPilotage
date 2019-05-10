@@ -1,13 +1,35 @@
 <template>
 
     <div id="gridPrincipal" class="wholePage">
-        <div id="Entete" ref="Entete">
+	
+        <div id="Entete" ref="Entete" >
             <EnteteApp :hauteurImages="45"/>
         </div>
-		<!-- <csvImporter></csvImporter> -->
+		<div >
+			<!-- <csvImporter></csvImporter> -->
 		<!-- <div v-on:changeTitle="updateTitle($event)"> -->
 		<b-tabs content-class="mt-3" align="center">
-			<b-tab :title="titles[0]" active>
+			<b-tab title="Tous" active>
+			<b-container fluid style="padding : 0 !important; ">
+				<!-- <div id="blanc" ref= "blanc"/> -->
+				<div class="row">
+
+					<b-col sm="4" id="PDM" >
+					<TableGrid :typeGrid= 1 :gridLib="titles[0]" :activite="activites[0]"></TableGrid>       
+					</b-col>
+
+					<b-col sm="4" id="BOU">
+					<TableGrid :typeGrid= 2 :gridLib="titles[1]" :activite="activites[1]"></TableGrid>
+					</b-col>
+
+
+					<b-col sm="4" id="FLF">
+					<TableGrid :typeGrid= 3 :gridLib="titles[2]" :activite="activites[2]"></TableGrid>
+					</b-col>
+				</div>
+			</b-container>
+			</b-tab>
+			<b-tab :title="titles[0]">
 				<!-- <div id="blanc" ref= "blanc"/> -->
 				<TableGrid :typeGrid= 1 :gridLib="titles[0]" :activite="activites[0]"></TableGrid>
 			</b-tab>
@@ -19,7 +41,6 @@
 				<!-- <div id="blanc" ref= "blanc"/> -->
 				<TableGrid :typeGrid= 3 :gridLib="titles[2]" :activite="activites[2]"></TableGrid>
 			</b-tab>
-			
 
 			
 
@@ -45,6 +66,8 @@
 				<img :src='placeholderG' @click="slideMenuGauche()">
 			</div>
 		 </b-container>
+		</div>
+		
 
     </div>
 </template>
@@ -139,6 +162,9 @@ export default {
   @import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
   @import "../node_modules/ag-grid-community/dist/styles/ag-theme-balham.css";
 
+	body{
+		overflow-x: hidden;
+	}
 
 	#gridPrincipal {
 		font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -219,4 +245,22 @@ export default {
 		cursor: pointer;
 	}
 
+	// #BOU {
+
+	// overflow-y:scroll; 
+    // position:relative;
+    // height: 100vh;
+	// }
+
+	// #PDM {
+	// overflow-y:scroll; 
+    // position:relative;
+    // height: 100vh;
+	// }
+
+	// #FLF {
+	// overflow-y:scroll; 
+    // position:relative;
+    // height: 100vh;
+	// }
 </style>

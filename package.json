@@ -16,6 +16,7 @@
     "bootstrap-vue": "^2.0.0-rc.19",
     "core-js": "^2.6.5",
     "gsap": "^2.1.2",
+    "jsgantt-improved": "^2.1.18",
     "vue": "^2.6.10",
     "vue-burger-menu": "^2.0.1",
     "vue-csv-import": "^2.3.3",

@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import BootstrapVue from "bootstrap-vue";
 import { VueCsvImport } from 'vue-csv-import';
+import {JSGantt} from 'jsgantt-improved';
 
 Vue.use(BootstrapVue);
 
@@ -16,7 +17,7 @@ Vue.config.productionTip = false;
 export const eventBus = new Vue();
 
 new Vue({
-  components: { VueCsvImport },
+  components: { VueCsvImport, JSGantt },
   el: "#app",
   router,
   store,
@@ -25,3 +26,4 @@ new Vue({
   },
   render: h => h(App)
 });
+

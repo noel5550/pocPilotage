@@ -1,16 +1,16 @@
 <template>
     <div> 
-    <b-container fluid>
+    <b-container fluid style="padding : 0 !important; margin-left:5px; margin-right:5px;">
 
       <!-- <b-card-header header-tag="header" class="p-1" role="tab">   -->
         <b-button 
-
+            :class="type"
             id="un"
 			block href="#" 
 			v-b-toggle="numJour.toString() + typeGrid.toString()"
-			variant="primary"
-            style="background-color:Teal">
-            Jour {{numJour}} | Nombre de tâches : {{nbTaches}} | Nombre de retards : {{nbRetards}}
+			variant="primary">
+            <!-- style="background-color:Teal"> -->
+           {{numJour}} | Nombre de tâches : {{nbTaches}} | Nombre de retards : {{nbRetards}}
         </b-button>
       <!-- </b-card-header> -->
       <b-collapse v-bind:id="numJour.toString() + typeGrid.toString()" class="mt-2" visible>
@@ -29,33 +29,44 @@
                     </b-button>
                 </template>
 
-                <template slot="row-details" slot-scope="row">
+                <template slot="row-details" slot-scope="row" style="float: right">
+                    <!-- <tbody> -->
+                    <b-row class="mt"   >
+                    <b-col cols="12" sm="12" >
                     <sousTaches :sousTables= row.item.sousTaches :fields= fields :typeGrid= typeGrid :numJour= numJour>      
                     </sousTaches>
-                    <!-- <tabJour :typeGrid="typeGrid" :gridLib="gridLib" :numJour="numJour"></tabJour> -->
-                    <b-card>
-                    <b-row class="mb-2">
-                        <b-col sm="3" class="text-sm-right"><b>d1:</b></b-col>
-                        <b-col>{{ row.item.d1 }}</b-col>
+
+
+                    </b-col>
+                    
                     </b-row>
 
+                    <!-- </tbody> -->
+                    <!-- <tabJour :typeGrid="typeGrid" :gridLib="gridLib" :numJour="numJour"></tabJour> -->
+                    <b-card>
+                    <!-- <b-row class="mb-2">
+                        <b-col sm="3" class="text-sm-right"><b>d1:</b></b-col>
+                        <b-col>{{ row.item.d1 }}</b-col>
+                    </b-row> -->
+
                     <b-row class="mb-2">
-                        <b-col sm="3" class="text-sm-right"><b>d2:</b></b-col>
+                        <b-col sm="12" class="text-sm-center">
                         <progBar 
                             :data= row.item>                        
                         </progBar>
+                        </b-col>
                     </b-row>
 
-                    <b-row class="mb-3">
+                    <!-- <b-row class="mb-3">
                         <b-col sm="3" class="text-sm-right"><b>d3:</b></b-col>
                         <b-col>{{ row.item.d3 }}</b-col>
-                    </b-row>
+                    </b-row> -->
                     </b-card>
                     
                 </template>
 
             </b-table>
-            <envoieMessage :idBouton = numJour.toString() :msgBouton = "'Alerter tâches'"></envoieMessage>
+            <!-- <envoieMessage :idBouton = numJour.toString() :msgBouton = "'Alerter tâches'"></envoieMessage> -->
       </b-tab>  
       </b-collapse>
       
@@ -81,6 +92,7 @@ export default {
         typeGrid: Number,
         gridLib: String,
         numJour: String,
+        libActivite: String,
     },
     
     data() {
@@ -142,11 +154,20 @@ export default {
         // },
 
         nbTaches(){
-           return this.$store.getters.getNbTaches('Activité ' + this.typeGrid, this.numJour);
+            return this.$store.getters.getNbTaches('Activité ' + this.typeGrid, this.numJour);
         },
 
         nbRetards(){
-           return this.$store.getters.getNbRetards('Activité ' + this.typeGrid, this.numJour);
+            return this.$store.getters.getNbRetards('Activité ' + this.typeGrid, this.numJour);
+        },
+
+        type(){
+            if(this.$store.getters.getType(this.libActivite, this.numJour)=="FRN") {
+                return 'frn';
+            }else{
+                return 'pdv';
+            }
+            
         },
         
     },
@@ -154,7 +175,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.frn{
+    background-color:Teal
+}
 
+.pdv{
+    background-color:#0FBB8A
+}
 </style>
 
