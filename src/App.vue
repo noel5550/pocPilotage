@@ -50,6 +50,7 @@
        
 		 <b-container fluid>
 			<div id="MenuSlideDroite" ref="MenuSlideDroite">
+
 				<SlideMenu/>
 			</div>
 			<div id="SliderDroite" ref="SliderDroite">
@@ -60,7 +61,9 @@
 			
 		 <b-container fluid>
 			<div id="MenuSlideGauche" ref="MenuSlideGauche">
-				<SlideMenu/>
+				<historisation>
+
+				</historisation>
 			</div>
 			<div id="SliderGauche" ref="SliderGauche">
 				<img :src='placeholderG' @click="slideMenuGauche()">
@@ -77,6 +80,7 @@ import EnteteApp from './components/Entete.vue';
 import SlideMenu from './components/SlideMenu.vue';
 import TableGrid from './components/TableGrid.vue';
 import csvImporter from './components/csvImporter.vue';
+import historisation from './components/Historisation.vue';
 
 export default {
     name: "gridPrincipal",
@@ -98,6 +102,7 @@ export default {
 		SlideMenu,
 		TableGrid,
 		csvImporter,
+		historisation,
     },
 
     methods: {

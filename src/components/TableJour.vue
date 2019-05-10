@@ -177,11 +177,17 @@ export default {
 
 <style scoped>
 .frn{
-    background-color:Teal
+    background-color:rgb(3, 126, 126)
+}
+.frn:hover{
+    background-color:rgba(3, 126, 126, 0.658)
 }
 
 .pdv{
     background-color:#0FBB8A
+}
+.pdv:hover{
+    background-color:rgba(15, 187, 138, 0.61)
 }
 </style>
 
