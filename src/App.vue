@@ -15,31 +15,31 @@
 				<div class="row">
 
 					<b-col sm="4" id="PDM" >
-					<TableGrid :typeGrid= 1 :gridLib="titles[0]" :activite="activites[0]"></TableGrid>       
+					<TableGrid :libActiv="libActiv[0]" :typeGrid= 1 :gridLib="titles[0]" :activite="activites[0]"></TableGrid>       
 					</b-col>
 
 					<b-col sm="4" id="BOU">
-					<TableGrid :typeGrid= 2 :gridLib="titles[1]" :activite="activites[1]"></TableGrid>
+					<TableGrid :libActiv="libActiv[1]" :typeGrid= 2 :gridLib="titles[1]" :activite="activites[1]"></TableGrid>
 					</b-col>
 
 
 					<b-col sm="4" id="FLF">
-					<TableGrid :typeGrid= 3 :gridLib="titles[2]" :activite="activites[2]"></TableGrid>
+					<TableGrid :libActiv="libActiv[2]" :typeGrid= 3 :gridLib="titles[2]" :activite="activites[2]"></TableGrid>
 					</b-col>
 				</div>
 			</b-container>
 			</b-tab>
 			<b-tab :title="titles[0]">
 				<!-- <div id="blanc" ref= "blanc"/> -->
-				<TableGrid :typeGrid= 1 :gridLib="titles[0]" :activite="activites[0]"></TableGrid>
+				<TableGrid :libActiv="libActiv[0]" :typeGrid= 1 :gridLib="titles[0]" :activite="activites[0]"></TableGrid>
 			</b-tab>
     		<b-tab :title="titles[1]">
 				<!-- <div id="blanc" ref= "blanc"/> -->
-				<TableGrid :typeGrid= 2 :gridLib="titles[1]" :activite="activites[1]"></TableGrid>
+				<TableGrid :libActiv="libActiv[1]" :typeGrid= 2 :gridLib="titles[1]" :activite="activites[1]"></TableGrid>
 			</b-tab>
     		<b-tab :title="titles[2]">
 				<!-- <div id="blanc" ref= "blanc"/> -->
-				<TableGrid :typeGrid= 3 :gridLib="titles[2]" :activite="activites[2]"></TableGrid>
+				<TableGrid :libActiv="libActiv[2]" :typeGrid= 3 :gridLib="titles[2]" :activite="activites[2]"></TableGrid>
 			</b-tab>
 
 			
@@ -94,6 +94,7 @@ export default {
 			
 			titles: [],
 			activites: [],
+			libActiv: [],
         }
     },
     
@@ -155,6 +156,7 @@ export default {
 	created(){
 		this.titles = this.$store.getters.getHeaders;
 		this.activites = this.$store.getters.getLibele;
+		this.libActiv = this.$store.getters.getLibActiv;
 	},
 
 };

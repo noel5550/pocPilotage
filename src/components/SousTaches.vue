@@ -4,6 +4,7 @@
            
             <b-table 
             small 
+            
             :items="sousTables" 
             :fields="fields"
             :striped ="striped"

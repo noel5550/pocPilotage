@@ -10,12 +10,15 @@ export default new Vuex.Store({
       {
         libele: "Activité 1",
         type: "PDV",
-        jour: "Produits de la Mer Soir",
+        jour: "Produits de la Mer PDV",
         tab: [
-          { lib: "Tache Jalon 1", temps: 5, d1: "test", d2: 3, d3: "3545", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(), sousTaches: [
-            { lib: "Tache 2", temps: 2, d1: "...", d2: 3, d3: "dddd", etat: 0, jour:new Date().toLocaleDateString() },
+          { lib: "Blocage commandes PDV", heure: "07h00", temps: 0.5, d1: "...", d2: 3, d3: "...", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches:[] },
+
+          { lib: "Mettre à disponistion les ordres de prépa NANTEUIL", heure: "07h00" ,temps: 0.5, d1: "test", d2: 3, d3: "3545", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(), sousTaches: [
+            { lib: "Tache 2", heure: "07h05", temps: 2, d1: "...", d2: 3, d3: "dddd", etat: 0, jour:new Date().toLocaleDateString() },
             {
               lib: "Tache 3",
+              heure: "07h00" ,
               temps: 10,
               d1: "bzefz",
               d2: 10,
@@ -23,73 +26,49 @@ export default new Vuex.Store({
               etat: 2,
               jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString()
             },
-            { lib: "Tache 4", temps: 3, d1: "...", d2: 0, d3: "...", etat: 1, jour:new Date().toLocaleDateString()},
-            { lib: "Tache 5", temps: 3, d1: "...", d2: 6, d3: "...", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString()},
+            { lib: "Tache 4", heure: "07h05", temps: 3, d1: "...", d2: 0, d3: "...", etat: 1, jour:new Date().toLocaleDateString()},
+            { lib: "Tache 5", heure: "07h05", temps: 3, d1: "...", d2: 6, d3: "...", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString()},
 
           ]},
-          { lib: "Tache Jalon 2", temps: 8, d1: "...", d2: 5, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
-            { lib: "Tache 7", temps: 12, d1: "...", d2: 12, d3: "...", etat: 2, jour:new Date().toLocaleDateString() },
-            { lib: "Tache 8", temps: 7, d1: "...", d2: 6, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate())).toLocaleDateString() }
+          { lib: "Mettre à disponistion les ordres de prépa autres dépôts", heure: "09h40", temps: 0.5, d1: "...", d2: 0.1, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
+            { lib: "Tache 7", heure: "09h40", temps: 12, d1: "...", d2: 12, d3: "...", etat: 2, jour:new Date().toLocaleDateString() },
+            { lib: "Tache 8", heure: "09h45", temps: 7, d1: "...", d2: 6, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate())).toLocaleDateString() }
 
           ]},
+          { lib: "Diffuser les prix de cession et les PVC", heure: "13h30", temps: 3, d1: "...", d2: 1.25, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches:[] }
+
         ]
       },
-      {
-        libele: "Activité 1",
-        type: "PDV",
-        jour: "Produits de la Mer Matin",
-        tab: [
-          { lib: "Tache Jalon 1", temps: 5, d1: "test", d2: 3, d3: "3545", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+2)).toLocaleDateString(), sousTaches: [
-            { lib: "Tache 2", temps: 2, d1: "...", d2: 4, d3: "dddd", etat: 0, jour:new Date().toLocaleDateString() },
-            { lib: "Tache 7", temps: 12, d1: "...", d2: 12, d3: "...", etat: 2, jour:new Date().toLocaleDateString() },
-          ]},
-          { lib: "Tache Jalon 2", temps: 7, d1: "...", d2: 6, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(), sousTaches:[] }
-        ]
-      },
+      // {
+      //   libele: "Activité 1",
+      //   type: "PDV",
+      //   jour: "Produits de la Mer Matin",
+      //   tab: [
+      //     { lib: "Gérer les écarts de réception", heure: "05h00", temps: 5, d1: "test", d2: 3, d3: "3545", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+2)).toLocaleDateString(), sousTaches: [
+      //       { lib: "Tache 2", heure: "07h05", temps: 2, d1: "...", d2: 4, d3: "dddd", etat: 0, jour:new Date().toLocaleDateString() },
+      //       { lib: "Tache 7", heure: "07h05", temps: 12, d1: "...", d2: 12, d3: "...", etat: 2, jour:new Date().toLocaleDateString() },
+      //     ]},
+      //     { lib: "Diffuser les prix de cession et les PVC", heure: "13h30", temps: 7, d1: "...", d2: 6, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches:[] }
+      //   ]
+      // },
       {
         libele: "Activité 1",
         type: "FRN",
-        jour: "Produits de la Mer Export",
+        jour: "Produits de la Mer FRN",
         tab: [
-          { lib: "Tache Jalon 1", temps: 5, d1: "test", d2: 3, d3: "3545", etat: 1, jour:new Date().toLocaleDateString(), sousTaches:[
-            { lib: "Tache 2", temps: 2, d1: "...", d2: 4, d3: "dddd", etat: 0 , jour:new Date().toLocaleDateString()},
+          { lib: "Envoie commandes", heure: "05h00", temps: 5, d1: "test", d2: 3, d3: "3545", etat: 1, jour:new Date().toLocaleDateString(), sousTaches:[
             {
-              lib: "Tache 3",
+              lib: "Vérification commande achat",
+              heure: "07h00",
               temps: 10,
               d1: "bzefz",
               d2: 10,
               d3: "...",
               etat: 2, jour:new Date().toLocaleDateString()
             },
-            { lib: "Tache 4", temps: 3, d1: "...", d2: 0, d3: "...", etat: 1, jour:new Date().toLocaleDateString() },
+            { lib: "Vérification commande fournisseur", heure: "10h00", temps: 3, d1: "...", d2: 0, d3: "...", etat: 1, jour:new Date().toLocaleDateString() },
 
           ] },
-          { lib: "Tache Jalon 2", temps: 3, d1: "...", d2: 8, d3: "...", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(),sousTaches: [
-            { lib: "Tache 6", temps: 8, d1: "...", d2: 5, d3: "...", etat: 1 , jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString()},
-
-          ] },
-        ]
-      },
-      
-      {
-        libele: "Activité 1",
-        type: "FRN",
-        jour: "Produits de la Mer Allotie",
-        tab: [
-          {
-            lib: "Tache Jalon 3",
-            temps: 10,
-            d1: "bzefz",
-            d2: 10,
-            d3: "...",
-            etat: 2, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(),
-            sousTaches: []
-          },
-          { lib: "Tache Jalon 4", temps: 3, d1: "...", d2: 0, d3: "...", etat: 1, jour:new Date().toLocaleDateString(), sousTaches: [] },
-          { lib: "Tache Jalon 5", temps: 3, d1: "...", d2: 6, d3: "...", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(), sousTaches: [] },
-          { lib: "Tache Jalon 6", temps: 8, d1: "...", d2: 5, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [] },
-          { lib: "Tache Jalon 7", temps: 12, d1: "...", d2: 12, d3: "...", etat: 2, jour:new Date().toLocaleDateString(), sousTaches: [] },
-          { lib: "Tache Jalon 8", temps: 7, d1: "...", d2: 6, d3: "...", etat: 1, jour:new Date().toLocaleDateString(), sousTaches: [] }
         ]
       },
       {
@@ -97,20 +76,24 @@ export default new Vuex.Store({
         type: "PDV",
         jour: "Boucherie Soir",
         tab: [
-          { lib: "Tache Jalon 1", temps: 15, d1: "...", d2: 12, d3: "...", etat: 1, jour:new Date().toLocaleDateString(), sousTaches: [
-            { lib: "Tache 2", temps: 2, d1: "...", d2: 4, d3: "...", etat: 0, jour:new Date().toLocaleDateString() },
+          { lib: "Blocage commandes PDV", heure: "07h00", temps: 0.5, d1: "...", d2: 3, d3: "...", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches:[] },
+
+          { lib: "Mettre à disponistion les ordres de prépa NANTEUIL", heure: "07h00" ,temps: 0.5, d1: "test", d2: 3, d3: "3545", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(), sousTaches: [
+            { lib: "Tache 2", heure: "07h05", temps: 2, d1: "...", d2: 3, d3: "dddd", etat: 0, jour:new Date().toLocaleDateString() },
             {
               lib: "Tache 3",
-              temps: 17,
-              d1: "sfzef",
-              d2: 20,
+              heure: "07h00" ,
+              temps: 10,
+              d1: "bzefz",
+              d2: 10,
               d3: "...",
-              etat: 0, jour:new Date().toLocaleDateString()
+              etat: 2,
+              jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString()
             },
-            { lib: "Tache 4", temps: 3, d1: "...", d2: 3, d3: "...", etat: 2, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() },
-            { lib: "Tache 5", temps: 5, d1: "...", d2: 4, d3: "68736", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() }
+            { lib: "Tache 4", heure: "07h05", temps: 3, d1: "...", d2: 0, d3: "...", etat: 1, jour:new Date().toLocaleDateString()},
+            { lib: "Tache 5", heure: "07h05", temps: 3, d1: "...", d2: 6, d3: "...", etat: 0, jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString()},
 
-          ] },
+          ]},
         ]
       },
       {
@@ -118,22 +101,11 @@ export default new Vuex.Store({
         type: "PDV",
         jour: "Boucherie Matin",
         tab: [
-          { lib: "Tache Jalon 1", temps: 15, d1: "...", d2: 12, d3: "...", etat: 1,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
-            {
-              lib: "Tache 3",
-              temps: 17,
-              d1: "sfzef",
-              d2: 20,
-              d3: "...",
-              etat: 0,
-              jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString()
-            },
+          { lib: "Mettre à disponistion les ordres de prépa autres dépôts", heure: "09h40", temps: 0.5, d1: "...", d2: 0.1, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
+            { lib: "Tache 7", heure: "09h40", temps: 12, d1: "...", d2: 12, d3: "...", etat: 2, jour:new Date().toLocaleDateString() },
+            { lib: "Tache 8", heure: "09h45", temps: 7, d1: "...", d2: 6, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate())).toLocaleDateString() }
 
-          ] },
-          { lib: "Tache Jalon 2", temps: 3, d1: "...", d2: 3, d3: "...", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
-            { lib: "Tache 5", temps: 5, d1: "...", d2: 4, d3: "68736",  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), etat: 1 }
-
-          ] },
+          ]},
         ]
       },
       {
@@ -141,21 +113,8 @@ export default new Vuex.Store({
         type: "PDV",
         jour: "Boucherie Allotie",
         tab: [
-          { lib: "Tache Jalon 1", temps: 15, d1: "...", d2: 12, d3: "...", etat: 1, jour:new Date().toLocaleDateString(), sousTaches: []},
-          { lib: "Tache Jalon 2", temps: 2, d1: "...", d2: 4, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
-            {
-              lib: "Tache 3",
-              temps: 17,
-              d1: "sfzef",
-              d2: 20,
-              d3: "...",
-              etat: 0,
-              jour:new Date(new Date().setDate(new Date().getDate()+2)).toLocaleDateString()
-            },
-            { lib: "Tache 4", temps: 3, d1: "...", d2: 3, d3: "...", etat: 2,  jour:new Date().toLocaleDateString() },
-            { lib: "Tache 5", temps: 5, d1: "...", d2: 4, d3: "68736", etat: 1,  jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString()}
+          { lib: "Diffuser les prix de cession et les PVC", heure: "13h30", temps: 3, d1: "...", d2: 1.25, d3: "...", etat: 1, jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches:[] }
 
-          ] },
         ]
       },
       {
@@ -163,19 +122,17 @@ export default new Vuex.Store({
         type: "FRN",
         jour: "Boucherie Export",
         tab: [
-          { lib: "Tache Jalon 1", temps: 15, d1: "...", d2: 12, d3: "...", etat: 1,  jour:new Date().toLocaleDateString(), sousTaches: []},
-          { lib: "Tache Jalon 2", temps: 2, d1: "...", d2: 4, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
+          { lib: "Envoie commandes", heure: "05h00", temps: 5, d1: "test", d2: 3, d3: "3545", etat: 1, jour:new Date().toLocaleDateString(), sousTaches:[
             {
-              lib: "Tache 3",
-              temps: 17,
-              d1: "sfzef",
-              d2: 20,
+              lib: "Vérification commande achat",
+              heure: "07h00",
+              temps: 10,
+              d1: "bzefz",
+              d2: 10,
               d3: "...",
-              etat: 0,
-              jour:new Date()
+              etat: 2, jour:new Date().toLocaleDateString()
             },
-            { lib: "Tache 4", temps: 3, d1: "...", d2: 3, d3: "...", etat: 2,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() },
-            { lib: "Tache 5", temps: 5, d1: "...", d2: 4, d3: "68736", etat: 1,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() }
+            { lib: "Vérification commande fournisseur", heure: "10h00", temps: 3, d1: "...", d2: 0, d3: "...", etat: 1, jour:new Date().toLocaleDateString() },
 
           ] },
         ]
@@ -185,10 +142,11 @@ export default new Vuex.Store({
         type: "FRN",
         jour: "Boucherie Porc",
         tab: [
-          { lib: "Tache Jalon 1", temps: 15, d1: "...", d2: 12, d3: "...", etat: 1,  jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(), sousTaches: []},
-          { lib: "Tache Jalon 2", temps: 2, d1: "...", d2: 4, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
+          { lib: "Tache Jalon 1", heure: "08h00", temps: 15, d1: "...", d2: 12, d3: "...", etat: 1,  jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(), sousTaches: []},
+          { lib: "Tache Jalon 2", heure: "08h00", temps: 2, d1: "...", d2: 4, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
             {
               lib: "Tache 3",
+              heure: "08h00",
               temps: 17,
               d1: "sfzef",
               d2: 20,
@@ -196,21 +154,10 @@ export default new Vuex.Store({
               etat: 0,
               jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString()
             },
-            { lib: "Tache 4", temps: 3, d1: "...", d2: 3, d3: "...", etat: 2,  jour:new Date().toLocaleDateString() },
-            { lib: "Tache 5", temps: 5, d1: "...", d2: 4, d3: "68736", etat: 1,  jour:new Date().toLocaleDateString() }
+            { lib: "Tache 4", heure: "08h00", temps: 3, d1: "...", d2: 3, d3: "...", etat: 2,  jour:new Date().toLocaleDateString() },
+            { lib: "Tache 5", heure: "08h00", temps: 5, d1: "...", d2: 4, d3: "68736", etat: 1,  jour:new Date().toLocaleDateString() }
 
           ] },
-          { lib: "Tache Jalon 3", temps: 3, d1: "...", d2: 3, d3: "...", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
-            { lib: "Tache 7", temps: 5, d1: "...", d2: 4, d3: "68736",  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), etat: 1 }
-
-          ] },
-          { lib: "Tache Jalon 4", temps: 3, d1: "...", d2: 3, d3: "...", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
-            { lib: "Tache 6", temps: 5, d1: "...", d2: 4, d3: "68736",  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), etat: 1 },
-            { lib: "Tache 6", temps: 5, d1: "...", d2: 4, d3: "68736",  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), etat: 1 }
-
-
-          ] },
-
         ]
       },
       {
@@ -218,9 +165,9 @@ export default new Vuex.Store({
         type: "PDV",
         jour: "Fruits et Légumes soir",
         tab: [
-          { lib: "Tache Jalon 1", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
-            { lib: "Tache 2", temps: 7, d1: "rzarze", d2: 6, d3: "...", etat: 1,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() },
-            { lib: "Tache 3", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString() }
+          { lib: "Ajuster les quantités commandées", heure: "08h00", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
+            { lib: "Visualisation de la commande confirmée",  heure: "13h00", temps: 7, d1: "rzarze", d2: 6, d3: "...", etat: 1,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() },
+            { lib: "Tache 3",  heure: "08h00", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString() }
 
           ] },
         ]
@@ -230,9 +177,21 @@ export default new Vuex.Store({
         type: "PDV",
         jour: "Fruits et Légumes matin",
         tab: [
-          { lib: "Tache Jalon 1", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
+          { lib: "Gérer les écrats de réception",  heure: "08h00", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
 
-            { lib: "Tache 3", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() }
+            { lib: "Tache 3",  heure: "08h00", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() }
+          ] },
+          { lib: "Répartir les quantités en fonction des entrées et des ajustements PDV", heure: "10h00", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
+          ] },
+          { lib: "Mettre à disposition les ordres de préparation", heure: "11h00", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
+          ] },
+          { lib: "Préparer la liste des réf commandables et ouvrir l'offre du jour aux PDV sur U Métiers", heure: "08h00",temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
+
+            { lib: "Gérer l'offre U Métiers",heure: "09h30", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() }
+          ] },
+          { lib: "Bloquer les commandes PDV", heure: "12h00",temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
+
+            { lib: "Tache 3",heure: "08h00", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString() }
           ] },
         ]
       },
@@ -241,9 +200,9 @@ export default new Vuex.Store({
         type: "FRN",
         jour: "Fruits et Légumes Allotie",
         tab: [
-          { lib: "Tache Jalon 1", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString(), sousTaches: [
+          { lib: "Ajuster les quantités/prix de vente", heure: "08h00", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
 
-            { lib: "Tache 3", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date().toLocaleDateString() }
+            { lib: "Confirmer les commandes reçues", heure: "13h30", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date().toLocaleDateString() }
           ] },
         ]
       },
@@ -252,9 +211,9 @@ export default new Vuex.Store({
         type: "FRN",
         jour: "Fruits et Légumes Export",
         tab: [
-          { lib: "Tache Jalon 1", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date().toLocaleDateString(), sousTaches: [
+          { lib: "Indiquer les quantités disponibles et les prix de vente", heure: "15h15", temps: 6, d1: "...", d2: 6, d3: "555", etat: 2,  jour:new Date(new Date().setDate(new Date().getDate()+1)).toLocaleDateString(), sousTaches: [
 
-            { lib: "Tache 3", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date().toLocaleDateString() }
+            { lib: "Tache 3", heure: "15h30", temps: 2, d1: "...", d2: 9, d3: "...", etat: 0,  jour:new Date().toLocaleDateString() }
           ] },
         ]
       },
@@ -267,11 +226,12 @@ export default new Vuex.Store({
     sidebarOpen: false,
 
     fields: [
-      { key: "lib", sortable: true },
-      { key: "temps", sortable: true },
+      { key: "lib", sortable: true, label: 'Libelé' },
+      { key: "heure", sortable: true},
+      { key: "temps", sortable: true, label: 'Durée',},
       { key: "details", sortable: false },
       { key: "etat", sortable: true },
-      { key: "jour", sortable: true},
+      { key: "jour", sortable: true, label: 'Journée d\'achat'},
     ]
   },
 
@@ -469,7 +429,26 @@ export default new Vuex.Store({
 
     getLibele(state){
       return state.numeroActivite;
-    }, 
+    },
+
+    getLibActiv(state){
+      var res = [];
+      state.bigTable.forEach(element => {
+        var libe = "";
+        if(element.libele=="Activité 1"){
+          libe = "Produits de la mer";
+        }else if(element.libele=="Activité 2"){
+          libe = "Boucherie";
+        }else if(element.libele=="Activité 3"){
+          libe = "Fruits et Légumes";
+        }
+
+        if(!res.includes(libe)){
+          res.push(libe);
+        }
+      });
+      return res;
+    },
 
     getRowData: state => (libele, jour, type) => {
       var res = null;

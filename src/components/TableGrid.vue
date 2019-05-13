@@ -1,20 +1,26 @@
 <template>
     <div>
+
+      <b-container fluid style="padding : 0 !important; padding-top: 0px !important">
       <div v-bind:key="index" v-for="(type, index) in listeTypes" >
         <b-button 
           :class="type"
           id="un"
           block href="#" 
           v-b-toggle="type + activite"
-          variant="primary">
-          {{type}}
+          variant="primary"
+          >
+          {{libActiv}} : {{type}}
+
         </b-button>
         <b-collapse v-bind:id="type + activite" class="mt-2">
-        <div v-bind:key="index" v-for="(jour, index) in listeJ" >
+        <div v-bind:key="index" v-for="(jour, index) in listeJ"  >
           <tabJour :libType ="type" :libActivite="activite" :typeGrid="typeGrid" :gridLib="gridLib" :numJour="jour"></tabJour>
         </div>
+        <div style="padding :5px"></div>
         </b-collapse>
       </div>
+      </b-container>
     </div>
     
 </template>
@@ -40,6 +46,7 @@
         typeGrid: Number,
         gridLib: String,
         activite: String,
+        libActiv: String,
     },
 
     computed: {
@@ -58,4 +65,20 @@
   .gtasklist{
     font-size: 1px;
   }
+</style>
+
+<style scoped>
+.FRN{
+    background-color:rgb(3, 126, 126)
+}
+.FRN:hover{
+    background-color:rgba(3, 126, 126, 0.658)
+}
+
+.PDV{
+    background-color:#0FBB8A
+}
+.PDV:hover{
+    background-color:rgba(15, 187, 138, 0.61)
+}
 </style>
