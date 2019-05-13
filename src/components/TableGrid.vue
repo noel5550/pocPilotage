@@ -1,7 +1,7 @@
 <template>
     <div>
 
-      <b-container fluid style="padding : 0 !important; padding-top: 0px !important">
+      <b-container fluid style="padding : 0 !important; ">
       <div v-bind:key="index" v-for="(type, index) in listeTypes" >
         <b-button 
           :class="type"
