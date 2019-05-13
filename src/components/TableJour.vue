@@ -4,6 +4,7 @@
 
       <!-- <b-card-header header-tag="header" class="p-1" role="tab">   -->
         <b-button 
+            v-show="items!=null"
             :class="type"
             id="un"
 			block href="#" 
@@ -18,6 +19,7 @@
             <div id="EnteteGrid" ref="EnteteGrid" style="margin-top:10px;">
             </div>
             <b-table 
+                v-show="items!=null"
                 small 
                 :items="items" 
                 :fields="fields" 
@@ -93,6 +95,7 @@ export default {
         gridLib: String,
         numJour: String,
         libActivite: String,
+        libType: String,
     },
     
     data() {
@@ -116,7 +119,7 @@ export default {
         },
         items(){
             var dataTable = [];
-            dataTable = this.$store.getters.getRowData('Activité ' + this.typeGrid, this.numJour);
+            dataTable = this.$store.getters.getRowData('Activité ' + this.typeGrid, this.numJour, this.libType);
                // if(this.typeGrid==1){    
             //     dataTable = this.$store.getters.getRowData1;
 
@@ -163,9 +166,9 @@ export default {
 
         type(){
             if(this.$store.getters.getType(this.libActivite, this.numJour)=="FRN") {
-                return 'frn';
+                return 'FRN';
             }else{
-                return 'pdv';
+                return 'PDV';
             }
             
         },
@@ -176,17 +179,17 @@ export default {
 </script>
 
 <style scoped>
-.frn{
+.FRN{
     background-color:rgb(3, 126, 126)
 }
-.frn:hover{
+.FRN:hover{
     background-color:rgba(3, 126, 126, 0.658)
 }
 
-.pdv{
+.PDV{
     background-color:#0FBB8A
 }
-.pdv:hover{
+.PDV:hover{
     background-color:rgba(15, 187, 138, 0.61)
 }
 </style>

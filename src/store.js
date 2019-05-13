@@ -471,10 +471,10 @@ export default new Vuex.Store({
       return state.numeroActivite;
     }, 
 
-    getRowData: state => (libele, jour) => {
+    getRowData: state => (libele, jour, type) => {
       var res = null;
       state.bigTable.forEach(element => {
-        if(element.libele==libele && element.jour==jour){
+        if(element.libele==libele && element.jour==jour && element.type==type){
           res = element.tab;
           res.forEach(element2 => {
             if (element2.etat == 0) {
