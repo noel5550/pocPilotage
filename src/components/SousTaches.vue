@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style= "padding : 0 !important">
         <b-container fluid style="padding : 0 !important">
            
             <b-table 
@@ -10,7 +10,6 @@
             :striped ="striped"
             :hover ="hover"
             >
-            <!-- thead-class="hidden_header">                 -->
             <template slot="details" slot-scope="row">
                 <b-button size="sm" @click="row.toggleDetails" class="mr-2">
                     {{ row.detailsShowing ? 'Fermer' : 'Ouvrir'}} Details
@@ -19,54 +18,18 @@
 
             <template slot="row-details" slot-scope="row">
 
-                <!-- <tabJour :typeGrid="typeGrid" :gridLib="gridLib" :numJour="numJour"></tabJour> -->
                 <b-card>
-                <!-- <b-row class="mb-2">
-                    <b-col sm="3" class="text-sm-right"><b>d1:</b></b-col>
-                    <b-col>{{ row.item.d1 }}</b-col>
-                </b-row> -->
-
                 <b-row class="mb-2">
                     <b-col sm="12" class="text-sm-center">
                         <prog-bar :data= row.item></prog-bar>
                     </b-col>
-                    <!-- <progBar 
-                        :tableProg="'Activité ' + typeGrid.toString()"
-                        :ligneProg= row.item.lib
-                        :jourProg= numJour>                        
-                    </progBar> -->
-                   
                 </b-row>
-
-                <!-- <b-row class="mb-3">
-                    <b-col sm="3" class="text-sm-right"><b>d3:</b></b-col>
-                    <b-col>{{ row.item.d3 }}</b-col>
-                </b-row> -->
                 </b-card>
                         
             </template>
             </b-table>  
            
-        </b-container>
-    <!-- <table class="table table-striped table-bordered table-hover">
-        
-        <tbody>
-        <template v-for="row in testing" >
-            <tr v-bind:key="row.id" @click="row.contentVisible = !row.contentVisible">
-            <td>{{row.id}}</td>
-            <td>{{row.name}}</td>
-            </tr>
-            <tr v-bind:key="row.id" v-if="row.contentVisible">
-            <td :colspan="columns.length" >
-                <div class="accordian-body">
-                afasfafs
-                </div>
-            </td>
-            </tr>
-        </template>
-        </tbody>
-    </table> -->
-    
+        </b-container>    
     </div> 
 </template>
 
@@ -122,6 +85,10 @@ export default {
   padding:0 !important;
   /* margin-right:0 !important; */
 
+}
+
+.classname{
+    padding: 0px !important;
 }
 
 </style>

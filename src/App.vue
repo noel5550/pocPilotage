@@ -1,4 +1,5 @@
 <template>
+	<b-container fluid>
 
     <div id="gridPrincipal" class="wholePage">
 	
@@ -73,6 +74,7 @@
 		
 
     </div>
+	</b-container>
 </template>
 
 <script>
@@ -83,7 +85,7 @@ import csvImporter from './components/csvImporter.vue';
 import historisation from './components/Historisation.vue';
 
 export default {
-    name: "gridPrincipal",
+	name: "gridPrincipal",
     data(){
         return{
             placeholderD: require('./assets/sliderOpen.png'),

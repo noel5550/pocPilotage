@@ -14,8 +14,8 @@
            {{numJour}} | Nombre de tâches : {{nbTaches}} | Nombre de retards : {{nbRetards}}
         </b-button>
       <!-- </b-card-header> -->
-      <b-collapse v-bind:id="numJour.toString() + typeGrid.toString()" class="mt-2">
-      <b-tab :title="gridLib" active>
+      <b-collapse v-bind:id="numJour.toString() + typeGrid.toString()" class="mt-2" >
+      <b-tab :title="gridLib" active >
             <!-- <div id="EnteteGrid" ref="EnteteGrid" style="margin-top:10px;">
             </div> -->
             <b-table 
@@ -24,14 +24,18 @@
                 :items="items" 
                 :fields="fields" 
                 :striped ="striped"
-                :hover ="hover">
-                <template slot="details" slot-scope="row">
+                :hover ="hover"
+                >
+
+                <template slot="details" slot-scope="row" >
                     <b-button size="sm" @click="row.toggleDetails" class="mr-2">
                         {{ row.detailsShowing ? 'Fermer' : 'Ouvrir'}} Details
                     </b-button>
                 </template>
 
+
                 <template slot="row-details" slot-scope="row" style="float: right">
+                   
                     <!-- <tbody> -->
                     <b-row class="mt"   >
                     <b-col cols="12" sm="12" >
@@ -42,6 +46,7 @@
                     </b-col>
                     
                     </b-row>
+     
 
                     <!-- </tbody> -->
                     <!-- <tabJour :typeGrid="typeGrid" :gridLib="gridLib" :numJour="numJour"></tabJour> -->
@@ -191,6 +196,10 @@ export default {
 }
 .PDV:hover{
     background-color:rgba(15, 187, 138, 0.61)
+}
+
+.classname{
+    padding: 0px !important;
 }
 </style>
 

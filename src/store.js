@@ -226,12 +226,12 @@ export default new Vuex.Store({
     sidebarOpen: false,
 
     fields: [
-      { key: "lib", sortable: true, label: 'Libelé' },
-      { key: "heure", sortable: true},
-      { key: "temps", sortable: true, label: 'Durée',},
-      { key: "details", sortable: false },
-      { key: "etat", sortable: true },
-      { key: "jour", sortable: true, label: 'Journée d\'achat'},
+      { key: "lib", sortable: true, label: 'Libelé', tdClass: 'classname' },
+      { key: "heure", sortable: true, tdClass: 'classname'},
+      { key: "temps", sortable: true, label: 'Durée', tdClass: 'classname'},
+      { key: "details", sortable: false, tdClass: 'classname' },
+      { key: "etat", sortable: true, tdClass: 'classname' },
+      { key: "jour", sortable: true, label: 'Journée d\'achat', tdClass: 'classname'},
     ]
   },
 
