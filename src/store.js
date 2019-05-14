@@ -505,7 +505,9 @@ export default new Vuex.Store({
       state.bigTable.forEach(element => {
         if(element.libele==libele && element.jour==jour){
           nbTaches = element.tab.length;
-          
+          element.tab.forEach(element2 => {
+            nbTaches += element2.sousTaches.length;
+          });
         }
       });
       return nbTaches;

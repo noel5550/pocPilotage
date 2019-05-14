@@ -14,16 +14,16 @@
 				<!-- <div id="blanc" ref= "blanc"/> -->
 				<div class="row">
 
-					<b-col sm="4" id="PDM" >
+					<b-col sm="4" id="PDM" style="padding: 3px !important">
 					<TableGrid :libActiv="libActiv[0]" :typeGrid= 1 :gridLib="titles[0]" :activite="activites[0]"></TableGrid>       
 					</b-col>
 
-					<b-col sm="4" id="BOU">
+					<b-col sm="4" id="BOU" style="padding: 3px !important">
 					<TableGrid :libActiv="libActiv[1]" :typeGrid= 2 :gridLib="titles[1]" :activite="activites[1]"></TableGrid>
 					</b-col>
 
 
-					<b-col sm="4" id="FLF">
+					<b-col sm="4" id="FLF" style="padding: 3px !important">
 					<TableGrid :libActiv="libActiv[2]" :typeGrid= 3 :gridLib="titles[2]" :activite="activites[2]"></TableGrid>
 					</b-col>
 				</div>

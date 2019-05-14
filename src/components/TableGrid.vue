@@ -13,7 +13,7 @@
           {{libActiv}} : {{type}}
 
         </b-button>
-        <b-collapse v-bind:id="type + activite" class="mt-2">
+        <b-collapse v-bind:id="type + activite" class="mt-2" style="margin-top: 0 !important">
         <div v-bind:key="index" v-for="(jour, index) in listeJ"  >
           <tabJour :libType ="type" :libActivite="activite" :typeGrid="typeGrid" :gridLib="gridLib" :numJour="jour"></tabJour>
         </div>

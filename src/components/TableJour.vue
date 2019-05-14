@@ -1,6 +1,6 @@
 <template>
-    <div> 
-    <b-container fluid style="padding : 0 !important;">
+    <div > 
+    <b-container fluid style="padding : 0 !important; ">
 
       <!-- <b-card-header header-tag="header" class="p-1" role="tab">   -->
         <b-button 
@@ -16,8 +16,8 @@
       <!-- </b-card-header> -->
       <b-collapse v-bind:id="numJour.toString() + typeGrid.toString()" class="mt-2">
       <b-tab :title="gridLib" active>
-            <div id="EnteteGrid" ref="EnteteGrid" style="margin-top:10px;">
-            </div>
+            <!-- <div id="EnteteGrid" ref="EnteteGrid" style="margin-top:10px;">
+            </div> -->
             <b-table 
                 v-show="items!=null"
                 small 
